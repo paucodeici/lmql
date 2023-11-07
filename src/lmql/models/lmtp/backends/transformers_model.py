@@ -59,6 +59,9 @@ class TransformersLLM(LMTPModel):
                 "batch_size": kwargs.get("batch_size", 16)
             }
             self.model = AutoAWQForCausalLM.from_quantized(self.model_identifier, **awq_args)
+        elif self.loader == "t5":
+            from transformers import T5ForConditionalGeneration
+            self.model = T5ForConditionalGeneration.from_pretrained(self.model_identifier, **self.model_args)
         else:
             from transformers import AutoModelForCausalLM            
             self.model = AutoModelForCausalLM.from_pretrained(self.model_identifier, **self.model_args)
