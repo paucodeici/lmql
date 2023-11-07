@@ -59,6 +59,13 @@ If you want more control over model loading and configuration, you can pass addi
 ```python
 lmql.model("local:gpt2", cuda=True)
 ```
+## Architecture
+
+Encoder-Decoder model such as T5 family can be loaded with
+
+```bash
+lmql serve-model t5-small --loader t5
+```
 
 ## Quantization
 
@@ -85,3 +92,5 @@ Install [AutoGPTQ](https://github.com/PanQiWei/AutoGPTQ) following the repo inst
 ```bash
 lmql serve-model TheBloke/Arithmo-Mistral-7B-GPTQ --loader gptq
 ```
+
+
